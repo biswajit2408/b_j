@@ -1,0 +1,115 @@
+.edu-cert-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 4rem;
+}
+
+.edu-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edu-icon {
+  color: var(--accent-primary);
+}
+
+.edu-title h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.edu-card {
+  background: var(--bg-secondary);
+  border-left: 4px solid var(--accent-primary);
+  padding: 1.5rem 2rem;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.edu-card:hover {
+  transform: translateX(5px);
+  background: var(--bg-tertiary);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+}
+
+.edu-card h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.edu-card h5 {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.edu-date {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  background: rgba(14, 165, 233, 0.1);
+  padding: 0.2rem 0.8rem;
+  border-radius: 9999px;
+}
+
+.cert-list {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-list li {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+  transition: color var(--transition-fast);
+}
+
+.cert-list li:last-child {
+  margin-bottom: 0;
+}
+
+.cert-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+
+.cert-list li:hover {
+  color: var(--text-primary);
+}
+
+@media (max-width: 400px) {
+  .edu-cert-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .edu-title h3 {
+    font-size: 1.25rem;
+  }
+  
+  .edu-card {
+    padding: 1rem 1.25rem;
+  }
+  
+  .cert-list {
+    padding: 1.25rem;
+  }
+  
+  .cert-list li {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,179 @@
+BISWAJIT  JANA Software  Developer  +91  9033638853  |  janabiswajit139@gmail.com  |  https://www.linkedin.com/in/biswajit-jana-605615181 |  https://github.com/biswajit2408 |  Rajkot  
+PROFESSIONAL  SUMMARY 
+2+  years  full-stack  software  developer  skilled  in  Laravel,  ReactJS,  and  RESTful  APIs.  Delivers  scalable,  secure  products  
+end-to-end—from
+ 
+DB
+ 
+schema
+ 
+and
+ 
+backend
+ 
+services
+ 
+to
+ 
+modern
+ 
+UI.
+ 
+Proficient
+ 
+in
+ 
+MySQL,
+ 
+OOP,
+ 
+MVC,
+ 
+and
+ 
+Python
+ 
+(pandas)
+ 
+for
+ 
+data
+ 
+analysis,
+ 
+with
+ 
+strong
+ 
+problem
+ 
+solving
+ 
+and
+ 
+communication.
+ 
+TECHNICAL  SKILLS 
+Programming  Languages:  PHP,  Java,  Python  Frameworks:  Laravel,  ReactJS,  Bootstrap  Frontend:  JavaScript,  HTML,  CSS  Tools:  QuickBase  CRM,  Jupyter  Notebook,  cursor.ai,  API  Integration  Databases:  SQL,  MySQL,  RDBMS  Methodologies:  OOP,  MVC  Architecture,  RESTful  Web  Development,  Data  Structures  and  Algorithms  Others:  Effective  Communication,  Problem  Solving,  Data  Analysis  
+PROFESSIONAL  EXPERIENCE  (2+  YEARS) 
+Software  Developer  |  Oct  2023  -  Present  Techxperts  (Creative  Web)  |  Rajkot  ●  Led  full-stack  web  development  with  Laravel  and  ReactJS,  delivering  secure,  scalable  features  across  backend  
+services
+ 
+and
+ 
+modern
+ 
+UI.
+ ●  Implemented  RESTful  APIs  with  authentication,  validation,  and  documentation;  streamlined  integrations  with  
+external
+ 
+systems
+ 
+to
+ 
+reduce
+ 
+manual
+ 
+operations.
+ ●  Designed  configurable  request  modules  leveraging  recursion  and  data  structures  to  minimize  hard-coded  
+logic
+ 
+and
+ 
+simplify
+ 
+maintenance.
+ ●  Performed  data  analysis  and  debugging  in  Python  (pandas),  improving  data  integrity  by  80%  through  
+anomaly
+ 
+detection
+ 
+and
+ 
+remediation.
+ ●  Optimized  performance  and  reliability  via  code  reviews ,  MVC  best  practices ,  and  tests;  reduced  API  latency  
+by
+ 
+30%
+ 
+and
+ 
+improved
+ 
+uptime
+ 
+by
+ 
+20%.
+ ●  Collaborated  with  stakeholders  to  prioritize  backlog  and  enhance  workflows ,  increasing  adoption  and  
+reducing
+ 
+manual
+ 
+effort
+ 
+by
+ 
+95%.
+ Technologies  Used:  Laravel,  ReactJS,  PHP,  JavaScript,  HTML,  CSS,  MySQL,  SQL,  RESTful  APIs,  OOP,  MVC,  Python  
+(pandas),
+ 
+QuickBase
+ 
+CRM,
+ 
+Jupyter
+ 
+Notebook
+ 
+PROJECTS 
+Data  Integration  Automation  |  Techxperts  (Creative  Web)  Built  middleware  and  API  layers  to  aggregate  multi-source  data  into  CRM  with  dynamic  filtering  and  configuration  for  
+flexible
+ 
+integrations.
+ ●  Developed  automated  RESTful  services  to  ingest  external  data,  cutting  manual  updates  by  100% and  
+enhancing
+ 
+data
+ 
+accuracy
+ 
+by
+ 98%.  ●  Created  a  dynamic,  configuration-driven  filtering  module  eliminating  hard-coded  parameters  across  APIs  
+with
+ 
+varying
+ 
+filter
+ 
+sets,
+ 
+improving
+ 
+maintainability
+ 
+and
+ 
+reducing
+ 
+manual
+ 
+application.
+  Scalable  Web  Applications  Platform  |  Techxperts  (Creative  Web)  Designed  and  deployed  multi-tenant  web  applications  with  performant  ReactJS  frontends  and  robust  Laravel  
+backends.
+ ●  Built  ReactJS  frontends  and  Laravel  backends  optimized  for  performance,  improving  page  load  times  by  ~30% and  supporting  10k+ active  users  with  reliable  uptime.  ●  Implemented  monitoring  and  test  suites  to  raise  quality,  reducing  production  defects  by  ~35%.  
+Transformed  By  Uplers
+ 
+EDUCATION 
+Master  of  Computer  Application  (MCA)  |  May  2023  Vellore  Institute  of  Technology  |  Vellore   Bachelor  of  Computer  Application  (BCA)  |  May  2021  Marwadi  University  |  Rajkot,  Gujarat  
+CERTIFICATIONS 
+●  Hewlett  Packard  Enterprise  Software  Engineering  Job  Simulation  on  Forage  ●  What  is  Data  Science?  on  Coursera  ●  Tools  for  Data  Science  on  Coursera  ●  Data  Science  Methodology  on  Coursera  ●  Python  for  Data  Science,  AI  &  Development  on  Coursera  ●  Python  Project  for  Data  Science  on  Coursera  
+ACHIEVEMENTS 
+●  Gained  proficiency  in  Python,  SQL,  data  science  libraries,  Jupyter  Notebooks,  RStudio,  and  version  control  
+with
+ 
+Git/GitHub.
+ ●  Applied  CRISP-DM  stages  to  case  studies  and  evaluated  predictive,  descriptive,  and  classification  models.  ●  Used  Pandas  and  NumPy  in  Jupyter  Notebooks  and  extracted  web  data  via  REST  APIs  and  BeautifulSoup.  ●  Built  interactive  dashboards  using  Pandas,  BeautifulSoup,  and  Plotly.  
+Transformed  By  Uplers
+ 

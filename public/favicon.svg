@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#0b1120"/>
+  <text x="50" y="68" font-family="'Outfit', system-ui, sans-serif" font-size="46" font-weight="900" text-anchor="middle" letter-spacing="-2">
+    <tspan fill="#f8fafc">B</tspan><tspan fill="#0ea5e9">J</tspan><tspan fill="#f8fafc">.</tspan>
+  </text>
+</svg>
