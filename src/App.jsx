@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { inject } from '@vercel/analytics';
 import { initScroll }  from './lib/scroll';
 import Navbar          from './components/Navbar';
 import Hero            from './components/Hero';
@@ -15,6 +16,7 @@ export default function App() {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    inject();
     lenisRef.current = initScroll();
     return () => lenisRef.current?.destroy();
   }, []);
