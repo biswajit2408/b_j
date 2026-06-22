@@ -64,6 +64,7 @@ ul { list-style:none; }
 /* ── Layout ── */
 .wrap { width:100%; max-width:1140px; margin:0 auto; padding:0 2rem; }
 @media(max-width:768px){ .wrap{ padding:0 1.25rem; } }
+@media(max-width:400px){ .wrap{ padding:0 1rem; } }
 .section { padding: 7rem 0; }
 @media(max-width:768px) { .section { padding: 4.5rem 0; } }
 @media(max-width:480px) { .section { padding: 3.5rem 0; } }
@@ -171,5 +172,43 @@ ul { list-style:none; }
 
 /* ── Neon text glow ── */
 .glow-y { text-shadow:0 0 40px rgba(245,224,48,.45); }
+.glow-p { text-shadow:0 0 40px rgba(255,45,120,.45); }
+.glow-c { text-shadow:0 0 40px rgba(0,229,212,.45); }
+
+/* ── Global mobile card padding normalization ── */
+@media(max-width:768px) {
+  /* Every padded card gets the same horizontal rhythm as the wrap gutter */
+  .ab-bio, .ab-avail, .ab-phil, .ab-gh,
+  .ab-loc .depth { padding-left:1.25rem; padding-right:1.25rem; }
+
+  .ab-stat    { padding: 1rem 1.25rem; }
+  .ab-bio     { padding: 1.25rem; }
+  .ab-avail   { padding: 1.1rem 1.25rem; }
+  .ab-phil    { padding: 1.1rem 1.25rem; }
+  .ab-gh      { padding: 1.1rem 1.25rem; }
+  .ab-loc     { padding: 1.1rem 1.25rem; }
+
+  .ex-header  { padding: 1.1rem 1.25rem; }
+  .eb-row     { padding: .9rem 1.1rem; }
+  .em-card    { padding: 1rem .75rem; }
+
+  .pj-card    { padding: 1.1rem 1.25rem; }
+  .pjb-top    { padding: 1rem 1.25rem; }
+  .pjb-body   { padding: 0 1.25rem; }
+  .pj-tags    { padding: 0 1.25rem 1.25rem; }
+  .pj-card .pj-tags { padding: 0; padding-top:.5rem; }
+
+  .deg-card   { padding: 1rem 1.25rem; }
+  .cert-list  { padding: .75rem 1rem; }
+  .cert-row   { padding: .7rem .25rem; }
+
+  .ct-card    { padding: 1.1rem 1.25rem; }
+  .contact .wrap { gap: 2.5rem; padding-top: 3.5rem; padding-bottom: 2.5rem; }
+
+  /* Tighter gaps on mobile */
+  .ab-grid    { gap: .75rem; }
+  .ab-heading { margin-bottom: 1.75rem; }
+  .sub        { margin-bottom: 2rem; }
+}
 .glow-p { text-shadow:0 0 40px rgba(255,45,120,.45); }
 .glow-c { text-shadow:0 0 40px rgba(0,229,212,.45); }
