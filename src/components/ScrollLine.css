@@ -1,0 +1,19 @@
+.sl-wrap {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sl-svg {
+  position: absolute;
+  top: 0; left: -48px;
+  width: 100px;
+  height: 100%;
+}
+
+@media(max-width:768px) { .sl-wrap { display: none; } }

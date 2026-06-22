@@ -1,0 +1,64 @@
+.cube-scene {
+  perspective: 960px;
+  width: 180px; height: 180px;
+  position: relative;
+}
+
+.cube {
+  width: 180px; height: 180px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cube-spin 20s linear infinite;
+}
+@keyframes cube-spin {
+  0%   { transform: rotateX(8deg)   rotateY(0deg); }
+  100% { transform: rotateX(8deg)   rotateY(360deg); }
+}
+
+.cube-face {
+  position: absolute;
+  width: 180px; height: 180px;
+  background: rgba(10,10,16,.85);
+  border: 1px solid rgba(99,102,241,.16);
+  border-radius: 14px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: .5rem;
+  backdrop-filter: blur(8px);
+}
+.face-front  { transform: rotateY(0deg)   translateZ(90px); }
+.face-back   { transform: rotateY(180deg) translateZ(90px); }
+.face-right  { transform: rotateY(90deg)  translateZ(90px); }
+.face-left   { transform: rotateY(-90deg) translateZ(90px); }
+.face-top    { transform: rotateX(90deg)  translateZ(90px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(90px); }
+
+.face-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .75rem; font-weight: 600;
+  opacity: .75; letter-spacing: .03em;
+}
+
+/* Orbit rings */
+.cube-scene::before,
+.cube-scene::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%; pointer-events: none;
+  animation: ring-p 4s ease-in-out infinite;
+}
+.cube-scene::before {
+  width: 290px; height: 290px;
+  border: 1px solid rgba(99,102,241,.12);
+  animation-delay: 0s;
+}
+.cube-scene::after {
+  width: 370px; height: 370px;
+  border: 1px dashed rgba(168,85,247,.07);
+  animation-delay: 1.8s;
+}
+@keyframes ring-p {
+  0%,100%{ transform:translate(-50%,-50%) scale(1);    opacity:.7; }
+  50%    { transform:translate(-50%,-50%) scale(1.05); opacity:.25; }
+}

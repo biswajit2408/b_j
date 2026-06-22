@@ -1,0 +1,65 @@
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0;
+  animation: aurora-fade 1.5s ease forwards;
+}
+
+.blob-1 {
+  width: 55vw; height: 55vw;
+  top: -20%; left: -15%;
+  background: radial-gradient(circle, rgba(99,102,241,.22) 0%, rgba(99,102,241,.06) 50%, transparent 70%);
+  animation: aurora-fade 1.5s ease forwards, blob1 22s ease-in-out 1.5s infinite alternate;
+}
+.blob-2 {
+  width: 45vw; height: 45vw;
+  top: 10%; right: -10%;
+  background: radial-gradient(circle, rgba(168,85,247,.18) 0%, rgba(168,85,247,.05) 50%, transparent 70%);
+  animation: aurora-fade 1.5s ease forwards, blob2 26s ease-in-out 1.5s infinite alternate;
+}
+.blob-3 {
+  width: 40vw; height: 40vw;
+  bottom: -15%; left: 20%;
+  background: radial-gradient(circle, rgba(34,197,94,.12) 0%, rgba(34,197,94,.03) 50%, transparent 70%);
+  animation: aurora-fade 1.5s ease forwards, blob3 30s ease-in-out 1.5s infinite alternate;
+}
+.blob-4 {
+  width: 30vw; height: 30vw;
+  bottom: 15%; right: 15%;
+  background: radial-gradient(circle, rgba(236,72,153,.1) 0%, rgba(236,72,153,.02) 50%, transparent 70%);
+  animation: aurora-fade 1.5s ease forwards, blob4 24s ease-in-out 1.5s infinite alternate;
+}
+
+@keyframes aurora-fade { from{opacity:0} to{opacity:1} }
+
+@keyframes blob1 {
+  0%   { transform: translate(0,0)    scale(1);    }
+  33%  { transform: translate(6vw,4vh)  scale(1.08); }
+  66%  { transform: translate(-4vw,8vh) scale(.95); }
+  100% { transform: translate(2vw,-3vh) scale(1.04); }
+}
+@keyframes blob2 {
+  0%   { transform: translate(0,0)     scale(1);    }
+  33%  { transform: translate(-8vw,3vh) scale(1.06); }
+  66%  { transform: translate(4vw,6vh)  scale(.93); }
+  100% { transform: translate(-2vw,-4vh)scale(1.05); }
+}
+@keyframes blob3 {
+  0%   { transform: translate(0,0)     scale(1);    }
+  50%  { transform: translate(5vw,-6vh) scale(1.1); }
+  100% { transform: translate(-3vw,3vh) scale(.96); }
+}
+@keyframes blob4 {
+  0%   { transform: translate(0,0)    scale(1);    }
+  50%  { transform: translate(-4vw,5vh)scale(1.07); }
+  100% { transform: translate(6vw,-3vh)scale(.94); }
+}

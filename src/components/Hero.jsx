@@ -1,187 +1,145 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Download, Github, Linkedin, Mail, Zap } from 'lucide-react';
+import TechCube from './TechCube';
 import './Hero.css';
 
-const Typewriter = ({ text, delay, speed = 50, showCursorAfter = false, showCursorBefore = false }) => {
-  const [currentText, setCurrentText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
-  const elementRef = useRef(null);
+const ROLES = ['Full-Stack Developer','Python Enthusiast','Node.js Engineer','ReactJS Builder','Problem Solver'];
 
+function useTypewriter(texts) {
+  const [display, setDisplay] = useState('');
+  const [ti, setTi] = useState(0);
+  const [ci, setCi] = useState(0);
+  const [del, setDel] = useState(false);
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsTyping(true);
-            setHasStarted(true);
-          }, delay);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const full = texts[ti]; let id;
+    if (!del && ci < full.length)         id = setTimeout(() => { setDisplay(full.slice(0,ci+1)); setCi(c=>c+1); }, 68);
+    else if (del && ci > 0)               id = setTimeout(() => { setDisplay(full.slice(0,ci-1)); setCi(c=>c-1); }, 32);
+    else if (!del && ci === full.length)  id = setTimeout(() => setDel(true), 2200);
+    else if (del && ci === 0)             { setDel(false); setTi(t=>(t+1)%texts.length); }
+    return () => clearTimeout(id);
+  }, [ci, del, ti, texts]);
+  return display;
+}
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+const socials = [
+  { href:'https://github.com/biswajit2408',                       icon:<Github size={18}/>,   label:'GitHub' },
+  { href:'https://www.linkedin.com/in/biswajit-jana-605615181',  icon:<Linkedin size={18}/>, label:'LinkedIn' },
+  { href:'mailto:janabiswajit139@gmail.com',                     icon:<Mail size={18}/>,     label:'Email' },
+];
 
-    return () => observer.disconnect();
-  }, [delay]);
-
-  useEffect(() => {
-    if (!isTyping) return;
-
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, speed);
-      return () => clearTimeout(timeout);
-    } else {
-      setIsTyping(false);
-      setIsFinished(true);
-    }
-  }, [currentIndex, isTyping, text, speed]);
-
-  const showCursor = isTyping ||
-    (showCursorAfter && isFinished) ||
-    (showCursorBefore && !hasStarted);
-
-  return (
-    <span ref={elementRef}>
-      {currentText === '' ? '\u00A0' : currentText}
-      {showCursor && <span className="blinking-cursor">|</span>}
-    </span>
-  );
+const cv = {
+  hidden: {},
+  show:   { transition:{ staggerChildren:0.1, delayChildren:0.2 } }
+};
+const iv = {
+  hidden: { opacity:0, y:40, rotate:2 },
+  show:   { opacity:1, y:0,  rotate:0, transition:{ type:'spring', stiffness:80, damping:18 } }
 };
 
-const RotatingTypewriter = ({ texts, delay, typeSpeed = 50, deleteSpeed = 30, pauseTime = 2000 }) => {
-  const [currentText, setCurrentText] = useState('');
-  const [textIndex, setTextIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
-  const elementRef = useRef(null);
+export default function Hero() {
+  const role = useTypewriter(ROLES);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setHasStarted(true);
-          }, delay);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (elementRef.current) observer.observe(elementRef.current);
-    return () => observer.disconnect();
-  }, [delay]);
-
-  useEffect(() => {
-    if (!hasStarted) return;
-
-    const currentFullText = texts[textIndex];
-    let timeoutId;
-
-    if (!isDeleting && charIndex < currentFullText.length) {
-      timeoutId = setTimeout(() => {
-        setCurrentText(currentFullText.slice(0, charIndex + 1));
-        setCharIndex(c => c + 1);
-      }, typeSpeed);
-    } else if (isDeleting && charIndex > 0) {
-      timeoutId = setTimeout(() => {
-        setCurrentText(currentFullText.slice(0, charIndex - 1));
-        setCharIndex(c => c - 1);
-      }, deleteSpeed);
-    } else if (!isDeleting && charIndex === currentFullText.length) {
-      timeoutId = setTimeout(() => {
-        setIsDeleting(true);
-      }, pauseTime);
-    } else if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
-      setTextIndex((t) => (t + 1) % texts.length);
-    }
-
-    return () => clearTimeout(timeoutId);
-  }, [charIndex, isDeleting, hasStarted, textIndex, texts, typeSpeed, deleteSpeed, pauseTime]);
-
-  return (
-    <span ref={elementRef}>
-      {currentText === '' ? '\u00A0' : currentText}
-      <span className="blinking-cursor">|</span>
-    </span>
-  );
-};
-
-const Hero = () => {
   return (
     <section className="hero">
-      <div className="container hero-container">
+      {/* Grid lines */}
+      <div className="hero-grid" aria-hidden />
 
-        <div className="hero-content reveal">
-          <p className="greeting">Hi, my name is</p>
-          <h1 className="name">
-            <Typewriter
-              text="Biswajit Jana."
-              delay={400}
-              speed={100}
-              showCursorBefore={true}
-            />
-          </h1>
-          <h2 className="role">
-            <RotatingTypewriter
-              texts={["A Software Developer.", "I build scalable digital experiences."]}
-              delay={2200}
-              typeSpeed={60}
-              deleteSpeed={30}
-              pauseTime={2500}
-            />
-          </h2>
-          <p className="summary">
-            I'm a full-stack software developer with 2+ years of experience specializing
-            in scalable backend architectures, modern frontend frameworks, and RESTful APIs.
-            I love building secure, performant web applications from database architecture to UI design.
-          </p>
+      {/* Background noise blobs */}
+      <div className="h-blob h-blob-1" aria-hidden />
+      <div className="h-blob h-blob-2" aria-hidden />
 
-          <div className="hero-cta">
-            <a href="#projects" className="btn btn-primary">
-              Check out my work <ArrowRight size={18} />
-            </a>
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="btn btn-outline" download>
-              Resume <Download size={18} />
-            </a>
-          </div>
+      <div className="wrap hero-wrap">
+        {/* LEFT */}
+        <motion.div className="hero-left" variants={cv} initial="hidden" animate="show">
 
-          <div className="social-links">
-            <a href="https://github.com/biswajit2408" target="_blank" rel="noreferrer" aria-label="GitHub">
-              <Github size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/biswajit-jana-605615181" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <Linkedin size={24} />
-            </a>
-            <a href="mailto:janabiswajit139@gmail.com" aria-label="Email">
-              <Mail size={24} />
-            </a>
-          </div>
-        </div>
+          <motion.div className="hero-badge" variants={iv}>
+            <Zap size={11} fill="currentColor" />
+            Open to Work &mdash; Full Stack Dev
+          </motion.div>
 
-        <div className="hero-visual reveal relative">
-          <div className="geometric-shape shape-1"></div>
-          <div className="geometric-shape shape-2"></div>
-          <div className="profile-frame">
-            <div className="profile-placeholder">
-              <span>BJ</span>
+          <motion.h1 className="hero-name" variants={iv}>
+            Biswajit<br />
+            <span className="hero-name-em glow-y">Jana.</span>
+          </motion.h1>
+
+          <motion.div className="hero-role" variants={iv}>
+            <span className="hr-bracket">{'>'}</span>
+            <span className="hr-text">{role || ' '}</span>
+            <span className="hr-cursor">|</span>
+          </motion.div>
+
+          <motion.p className="hero-bio" variants={iv}>
+            2+ years building real products across the full stack.
+            Genuinely passionate about <strong>Python</strong> &amp; <strong>Node.js</strong>.
+            Love working with <strong>ReactJS</strong> and <strong>Laravel</strong> too.
+          </motion.p>
+
+          <motion.div className="hero-cta" variants={iv}>
+            <motion.a href="#projects" className="btn btn-primary"
+              whileHover={{ scale:1.03 }} whileTap={{ scale:.96 }}>
+              View Work <ArrowRight size={15} />
+            </motion.a>
+            <motion.a href="/resume.pdf" download className="btn btn-ghost"
+              whileHover={{ scale:1.02 }} whileTap={{ scale:.96 }}>
+              Resume <Download size={15} />
+            </motion.a>
+          </motion.div>
+
+          <motion.div className="hero-bottom" variants={iv}>
+            <div className="hero-socials">
+              {socials.map(s => (
+                <motion.a key={s.label} href={s.href} target="_blank" rel="noreferrer"
+                  aria-label={s.label} className="soc-btn"
+                  whileHover={{ y:-4, rotate:-5, scale:1.1 }}
+                  whileTap={{ scale:.9 }}>
+                  {s.icon}
+                </motion.a>
+              ))}
             </div>
-          </div>
-        </div>
+            <div className="hero-stats">
+              {[['2+','Yrs'],['10k+','Users'],['5+','Products']].map(([n,l]) => (
+                <div key={l} className="hst">
+                  <b>{n}</b><span>{l}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* RIGHT — 3D Cube */}
+        <motion.div className="hero-right"
+          initial={{ opacity:0, scale:.85, rotate:-4 }}
+          animate={{ opacity:1, scale:1,   rotate:0 }}
+          transition={{ type:'spring', stiffness:70, damping:18, delay:.35 }}>
+
+          <div className="cube-ring" aria-hidden />
+          <TechCube />
+
+          {/* Floating pills */}
+          {[
+            { cls:'fp-1', label:'Python · Node.js', color:'var(--g)',  delay:.6 },
+            { cls:'fp-2', label:'ReactJS · Laravel', color:'var(--y)', delay:.8 },
+            { cls:'fp-3', label:'Available ✦',       color:'var(--c)', delay:1.0 },
+          ].map(f => (
+            <motion.div key={f.cls} className={`fp ${f.cls}`}
+              style={{ '--fc': f.color }}
+              initial={{ opacity:0, scale:.7 }}
+              animate={{ opacity:1, scale:1 }}
+              transition={{ type:'spring', stiffness:100, damping:16, delay:f.delay }}>
+              {f.label}
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div className="hero-scroll"
+        initial={{ opacity:0 }} animate={{ opacity:1 }}
+        transition={{ delay:1.4, duration:.7 }}>
+        <div className="hs-line"><div className="hs-dot" /></div>
+        <span>scroll</span>
+      </motion.div>
     </section>
   );
-};
-
-export default Hero;
+}
