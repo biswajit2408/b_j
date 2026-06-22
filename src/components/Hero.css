@@ -45,7 +45,8 @@
   gap: 4rem;
   align-items: center;
   width: 100%;
-  padding: 2rem 0 4rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 /* LEFT */
@@ -169,6 +170,7 @@
 @media(max-width:960px) {
   .hero-wrap { grid-template-columns:1fr; gap:2rem; }
   .hero-left { align-items:center; text-align:center; }
+  .hero-badge { align-self:center; }
   .hero-bio  { text-align:center; }
   .hero-right { order:-1; min-height:260px; }
   .fp { display:none; }
