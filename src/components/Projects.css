@@ -98,4 +98,8 @@
 }
 @media(max-width:580px) {
   .pj-grid { grid-template-columns: 1fr; }
+  .pjb-num { font-size:1.8rem; }
+  .pjb-top { padding:.9rem 1.1rem; }
+  .pjb-body { padding:0 1.1rem; }
+  .pj-tags { padding:0 1.1rem 1.1rem; }
 }

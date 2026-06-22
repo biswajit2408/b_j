@@ -167,13 +167,23 @@
 
 /* Responsive */
 @media(max-width:960px) {
-  .hero-wrap { grid-template-columns:1fr; gap:2.5rem; }
+  .hero-wrap { grid-template-columns:1fr; gap:2rem; }
   .hero-left { align-items:center; text-align:center; }
   .hero-bio  { text-align:center; }
-  .hero-right { order:-1; min-height:280px; }
+  .hero-right { order:-1; min-height:260px; }
   .fp { display:none; }
+  .hero-bottom { justify-content:center; }
+  .cube-ring { width:260px; height:260px; }
+}
+@media(max-width:600px) {
+  .hero-name { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+  .hero-badge { font-size:.6rem; }
+  .hero-right { min-height:220px; }
+  .cube-ring { width:200px; height:200px; }
 }
 @media(max-width:480px) {
   .hero-cta { flex-direction:column; width:100%; }
   .hero-cta .btn { justify-content:center; }
+  .hero-stats { gap:.9rem; }
+  .hst b { font-size:1.2rem; }
 }

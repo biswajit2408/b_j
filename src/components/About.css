@@ -135,4 +135,10 @@
     grid-column:1; grid-row:auto;
   }
   .ab-stats { flex-direction:row; }
+  .ab-stat { min-height:80px; }
+}
+@media(max-width:520px) {
+  .ab-stats { flex-direction:column; gap:.75rem; }
+  .ab-stat { min-height:70px; }
+  .abs-num { font-size:2rem; }
 }

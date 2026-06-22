@@ -67,3 +67,9 @@
   .ex-bullets  { grid-template-columns: 1fr; }
   .ex-metrics  { grid-template-columns: repeat(2,1fr); }
 }
+@media(max-width:480px) {
+  .ex-header { flex-direction:column; align-items:flex-start; gap:.8rem; }
+  .ex-metrics { grid-template-columns: repeat(2,1fr); gap:.6rem; }
+  .em-val { font-size:1.5rem; }
+  .em-card { padding:.9rem .7rem; }
+}

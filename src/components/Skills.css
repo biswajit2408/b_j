@@ -3,7 +3,7 @@
 /* Marquee */
 .mq-section {
   display: flex; flex-direction: column;
-  gap: 1.1rem; margin: 2.5rem 0 3rem; overflow: hidden;
+  gap: 1.1rem; margin: 2rem 0 2.5rem; overflow: hidden;
 }
 .mq-outer {
   overflow: hidden;
